@@ -1,24 +1,16 @@
 #!/usr/bin/python3
-"""
-Contains the class definition of a State
-"""
+"""First state model"""
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-
+# from model_city import City
 
 Base = declarative_base()
 
 
 class State(Base):
-    """
-    Class that defines each State
-    """
+    """Represent a state"""
     __tablename__ = 'states'
-    id = Column(
-            Integer,
-            autoincrement=True,
-            unique=True,
-            nullable=False,
-            primary_key=True
-            )
+    id = Column(Integer, primary_key=True, nullable=False,
+                autoincrement=True, unique=True)
     name = Column(String(128), nullable=False)
